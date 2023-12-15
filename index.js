@@ -26,10 +26,12 @@ app.post("/book", function (req, res) {
   res.json({ status: "Success" });
 });
 
-app.delete("/book", (req, res) => {
+app.delete("/book/:bookId", (req, res) => {
   const bookIdToDelete = req.params.bookId;
   books = books.filter((e) => e.id !== Number(bookIdToDelete));
   return res.json({ status: "Deleted" });
 });
+
+
 console.log("Hello world");
 app.listen(4000, () => console.log("PORT : 4000"));
